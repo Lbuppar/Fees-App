@@ -1,0 +1,36 @@
+<%- include("./partials/top.ejs") %>
+    <section class="container mt-5">
+        <h1 class="text-left text-danger">Update Student Document</h1>
+        <article class="row">
+            <div class="col-sm-5">
+                <form method="post" action="/update/<%= student.id %>">
+                    <div class="mb-3">
+                        <label for="fname" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="fname" name="fname" value="<%= student.fname %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="standard" class="form-label">Student Course Name</label>
+                        <input type="text" class="form-control" id="standard" name="standard"
+                            value="<%= student.standard %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="fees" class="form-label">Fees Amount</label>
+                        <input type="number" class="form-control" id="fees" name="fees" value="<%= student.fees %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                            name="email" value="<%= student.email %>">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputPassword1" class="form-label">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" name="password"
+                            value="<%= student.password %>">
+                    </div>
+                    <button type="submit" class="btn btn-primary ">Update</button>
+                </form>
+
+            </div>
+        </article>
+    </section>
+    <%- include("./partials/bottom.ejs") %>

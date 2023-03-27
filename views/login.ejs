@@ -1,0 +1,63 @@
+<%- include("./partials/top.ejs") %>
+    <div class="container mt-5">
+        <%- include("./partials/navigation.ejs") %>
+            <div class="row mt-5 login">
+
+                <div class="col mt-5">
+
+                    <img src="/images/school3.jpg" alt="school3" width="585" height="340" class="rounded">
+
+                </div>
+                <div class="col mt-5">
+                    <h4 class="text-center">Login</h4>
+
+                    <p id="emailPassword" class="text-danger">
+                        <%= emailPassword %>
+                    </p>
+
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
+                                name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="checkbox" onclick="showPassword()">
+                            <label class="form-check-label" for="checkbox">Check me out</label>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    </form>
+
+                </div>
+            </div>
+    </div>
+    <script>
+
+        let emailPassword = document.getElementById("emailPassword");
+
+        setTimeout(() => {
+            emailPassword.innerText = ""
+        }, 2000);
+
+
+        let checkbox = document.getElementById("checkbox");
+        let passwordFiled = document.getElementById("password");
+
+        function showPassword() {
+
+            if (checkbox.checked == true) {
+                passwordFiled.type = "text"
+            } else {
+                passwordFiled.type = "password"
+
+            }
+
+        }
+
+
+    </script>
+    <%- include("./partials/bottom.ejs") %>
