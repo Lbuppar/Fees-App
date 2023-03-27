@@ -35,8 +35,8 @@ app.use(favicon(join(process.cwd(), 'public', 'favicon.ico')));
 
 
 connectDB(DATABASE_URL).then(() => {
-    app.listen(port, host, () => {
-        console.log(`Application Running at http://${host}:${port}`);
+    app.listen(port, () => {
+        console.log(`Application Running at http://localhost:${port}`);
     })
 })
 
