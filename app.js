@@ -9,7 +9,6 @@ import web from './routes/web.js';
 
 const app = express();
 const port = process.env.PORT || 9000;
-const host = process.env.HOST || 'localhost';
 const DATABASE_URL = process.env.DATABASE_URL;
 
 // connecting database
