@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 dotenv.config();
+import mongoose from 'mongoose';
 import express from 'express';
 import favicon from 'express-favicon';
-import mongoose from 'mongoose';
 import { join } from 'path';
 import connectDB from './db/connectDb.js';
 import web from './routes/web.js';
@@ -13,7 +13,7 @@ const DATABASE_URL = process.env.DATABASE_URL;
 
 // connecting database
 mongoose.set('strictQuery', false)
-connectDB(DATABASE_URL);
+
 
 // url encoded
 app.use(express.urlencoded({ extended: true }))
@@ -33,9 +33,13 @@ app.use("/", web)
 app.use(favicon(join(process.cwd(), 'public', 'favicon.ico')));
 
 
-app.listen(port, host, () => {
-    console.log(`Application Running at http://${host}:${port}`);
+
+connectDB(DATABASE_URL).then(() => {
+    app.listen(port, host, () => {
+        console.log(`Application Running at http://${host}:${port}`);
+    })
 })
+
 
 
 
