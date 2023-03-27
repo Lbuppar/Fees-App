@@ -13,6 +13,7 @@ const DATABASE_URL = process.env.DATABASE_URL;
 
 // connecting database
 mongoose.set('strictQuery', false)
+connectDB(DATABASE_URL)
 
 
 // url encoded
@@ -34,10 +35,8 @@ app.use(favicon(join(process.cwd(), 'public', 'favicon.ico')));
 
 
 
-connectDB(DATABASE_URL).then(() => {
-    app.listen(port, () => {
-        console.log(`Application Running at http://localhost:${port}`);
-    })
+app.listen(port, () => {
+    console.log(`Application Running at http://localhost:${port}`);
 })
 
 
